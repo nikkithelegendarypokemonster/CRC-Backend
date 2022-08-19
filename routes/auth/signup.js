@@ -46,7 +46,7 @@ async function hashAndSalt(req,res,next)
 {
     const saltRounds = 10;
     let temp = new User(req.body.email,req.body.pass)
-    temp.password=await crypt.hash(temp.password, saltRounds);
+    temp.password=await crypt.hash(temp.password, saltRounds)
     res.locals.user = temp;
   next();
 }
