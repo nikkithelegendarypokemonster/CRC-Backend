@@ -53,14 +53,14 @@ async function hashAndSalt(req,res,next)
 function putDB(req,res,next)
 {
   // if found just update else create
-  // if(res.locals.found){
-  //   res.status(403).send("User Exist's")
-  // }else{
-  //   // create user
-  //   users.push(res.locals.user)
-  //   update=JSON.stringify(users, null ,2);
-  //   fs.writeFileSync(__dirname+'/../../data/users.json', update);
-  // }
+  if(res.locals.found){
+    res.status(403).send("User Exist's")
+  }else{
+    // create user
+    users.push(res.locals.user)
+    update=JSON.stringify(users, null ,2);
+    fs.writeFileSync(__dirname+'/../../data/users.json', update);
+  }
   next();
 }
 module.exports = router

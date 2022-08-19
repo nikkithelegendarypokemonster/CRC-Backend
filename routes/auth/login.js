@@ -11,5 +11,5 @@ router.post('/',(req,res)=>{
     }
   }
   res.status(400).json({error:"No User"})
-})
+}) 
 module.exports = router
